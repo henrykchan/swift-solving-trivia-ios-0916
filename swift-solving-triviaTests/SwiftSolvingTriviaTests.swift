@@ -64,7 +64,7 @@ class AppDelegateSpec: QuickSpec {
             "Wyoming":"Cheyenne"]
         
         describe("solvingTrivia") {
-            let triviaAnswer = appDelegate.solveTrivia(statesAndCapitals)
+            let triviaAnswer = appDelegate.solveTrivia(trivia: statesAndCapitals)
             it("Should return a string with the correct trivia answer") {
                 expect(triviaAnswer).to(contain("South Dakota"))
                 

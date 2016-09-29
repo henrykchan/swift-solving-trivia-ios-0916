@@ -12,18 +12,37 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
-    
-    
-    func solveTrivia(_ trivia: [String : String]) -> String {
+    func solveTrivia(trivia: [String : String]) -> String {
         
-        // Implement this function!
         
-        return "Hi :D"
+        var stateCapitalUnmatch = ""
+        
+        for (state, capital) in trivia {
+            
+            
+            //Lower cased state and capital and replacing all spaces
+            
+            let lowState = state.lowercased().replacingOccurrences(of: " ", with: "")
+            let lowCapital = capital.lowercased().replacingOccurrences(of: " ", with: "")
+            
+            
+            
+            //Putting the lowercased States into a set of charcters
+            
+            let stateCharacterSet = NSCharacterSet(charactersIn: lowState)
+            
+            
+            //Comparing lowercased Capital and lowercased States character, if there isn't
+            //any similarities which returns nil, then return state
+            
+            if lowCapital.rangeOfCharacter(from: stateCharacterSet as CharacterSet) == nil {
+        
+                stateCapitalUnmatch = state
+                
+            }
+        }
+            return stateCapitalUnmatch
         
     }
-    
-    
-    
-    
-}
 
+}
